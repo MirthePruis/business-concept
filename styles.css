@@ -1,28 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
 }
 /*////////////////////////////////////////////////////////////////////////
 Table of Contents:
     1. Global Styles
     2. Typografie
     3. Areas
+    3.1 Header
+    3.2 Introduction
+    3.3 Work
+    3.4 Services
+    3.5 Contact
+    3.6 Footer
     4. Media Queries
 ////////////////////////////////////////////////////////////////////////*/
 
-/*////////////////
-    1. Gloabl Styles
-////////////////*/
+/*///////////1. Gloabl Styles////////////////*/
+/* colors to use:
+Paars #5722CD;
+Blauw #4845E4;
+Roze #ED4385;
+Zwart #0C0C0C (voor standaard tekst);
+Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen:
+Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)
+Grijs #7A7A7A (voor de service-tegel tekst);
+ */
+/*//////////////2. Typografie////////////////*/
 
-/*////////////////
-    2. Typografie
-////////////////*/
+/*/////////////// 3. Areas //////////////////*/
+/* --------------- 3.1 Header -------------- */
 
-/*////////////////
-    3. Areas
-////////////////*/
+header {
+    padding: 20px 0;
+    position: relative;
+    background: linear-gradient(90deg,#4845E4,#3623DE, #5722CD);
+}
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    clip-path: polygon(0 70%, 100% 100%, 0% 100%);
+}
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 30px;
+    margin-right: 100px;
+    font-family: Roboto, sans-serif;
+}
+.navigation a {
+    text-decoration: none;
+    color: white;
+}
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 120px 0;
+    gap: 25px;
+}
+.header-content h1 {
+    font-family: Merriweather, serif;
+    font-size: 36px;
+    color: white;
+}
+.header-content p {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+.header-content a {
+    text-decoration: none;
+    color: black;
+    font-family: Roboto, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 20px;
+    color: white;
+    background-color: deeppink;
+    border-radius: 30px;
+   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);;
+}
+.line-stripe-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 450px;
+    width: 50px;
+}
+/* ------------ 3.2 Introduction ----------- */
+.introduction {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    gap: 20px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    color: #5722CD;
+    font-size: 22px;
+}
+.introduction::before{
+    content: "hello";
+    position: absolute;
+    font-family: Roboto, sans-serif;
+    font-size: 300px;
+    line-height: 1;
+    color: #F2F0FF;
+    left: 0;
+    top: -80px;
+    z-index: -1;
+}
+.introduction p:last-of-type {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 30px;
+    color: black;
+}
+.introduction a {
+    text-decoration: none;
+}
+/* --------------- 3.3 Work -------------- */
+.work {
+  width: 100%;
+    position: relative;
+    max-widht: 1100px;
+    margin: 120px auto 0;
+    padding: 180px 30px 180px;
+    box-sizing: border-box;
+}
+.work::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EBEDF0;
+    clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+}
+.work::after {
+    content: "work";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Roboto, sans-serif;
+    font-size: 300px;
+    font-weight: 700;
+    color: white;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+.project {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+}
+.project-text {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 35%;
+    gap: 30px;
+    max-width: 200px;
+}
+.project-text h2{
+    font-family: Merriweather, serif;
+    font-weight: 400;
+    font-size: 21px;
+}
+.project h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 10px;
+    background-image: url("assets/squiggle_line.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 10px;
+}
+.project-text p{
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+}
+.project-link {
+    font-family: Roboto, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: #5722CD;
+    text-decoration: none;
+}
+.project-link::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #5722CD;
+    margin-left: 10px;
+    vertical-align: middle;
+    transition: width 0.3s ease;
+}
+.project-link:hover::after {
+    width: 50px;
+}
+.image-wrapper {
+    width: 45%;
+    flex:0 1 45%;
+    min-width: 0;
+    max-width: 400px;
+}
+.image-wrapper img {
+   display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);;
+}
+.project:nth-child(even) {
+    flex-direction: row-reverse;
+}
+/* ------------- 3.4 Services -------------- */
+.services {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    position: relative;
+    max-width: 1000px;
+    margin: 120px auto 0;
+    padding: 180px 30px 180px;
+    box-sizing: border-box;
+}
+.services::after {
+    content: "services";
+    position: absolute;
+    font-family: Roboto, sans-serif;
+    font-size: 250px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    color: #F2F0FF;
+    left: auto;
+    top: -10px;
+    z-index: -1;
+}
 
-/*////////////////
-    4. Media Queries
-////////////////*/
+.article-service {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    flex: 1 1 30%;
+    max-width: 300px;
+    padding: 25px;
+    background-color: white;
+    border: #5722CD solid 1px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+.article-service img {
+    width: 60px;
+    height: auto;
+}
+.article-service h3 {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    color: #5722CD;
+}
+.article-service p {
+    font-family: Roboto, sans-serif;
+    color: #7A7A7A;
+    font-size: 12px;
+}
+/* ------------- 3.5 Contact --------------- */
+.contact {
+    padding: 100px 0 100px;
+    position: relative;
+    background: linear-gradient(90deg,#4845E4,#3623DE, #5722CD);
+    clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%);
+}
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.contact-content h2 {
+    font-family: Merriweather, serif;
+    font-weight: bold;
+    color: white;
+}
+.contact-content p {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    color: white;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.form-field textarea {
+    height: 120px;
+    font-family: Roboto, sans-serif;
+}
+.contact-button {
+    background-color: deeppink;
+    color: white;
+    font-family: Roboto, sans-serif;
+    padding: 20px;
+    width: 20%;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);;
+}
+
+/* --------------- 3.6 Footer -------------- */
+.footer-content {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    text-align: center;
+    padding: 10px;
+}
+/*////////////////4. Media Queries//////////*/
+@media screen and (max-width: 768px) {
+    .contact-content {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-field {
+        width: 100%;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .services::after {
+        font-size: 120px;
+        top: 90px;
+    }
+
+    .work::after {
+        font-size: 200px;
+        top: 90px;
+    }
+}
